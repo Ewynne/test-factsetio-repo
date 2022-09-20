@@ -1,0 +1,48 @@
+{
+  "logo": "https://example.com/logo.png",
+  "name": "My example pipeline",
+  "repository": "https://github.factset.com/factset-io/example",
+  "test": {
+    "enabled": true,
+    "env": {
+      "foobar": {
+        "required": true
+      }
+    }
+  },
+  "review": {
+    "enabled": true,
+    "env": {
+      "DEP_URL": "https://my-dep-review.factset.io"
+    }
+  },
+  "apps": {
+    "staging": [
+      {
+        "suffix": "-inhouse",
+        "region": "us-test",
+        "env": {
+          "DEP_URL": "https://my-dep-ih.factset.io"
+        }
+      }
+    ],
+    "production": [
+      {
+        "suffix": "-client-a",
+        "region": "us-test",
+        "zone": "a-site",
+        "env": {
+          "DEP_URL": "https://my-dep-client-a.factset.io"
+        }
+      },
+      {
+        "suffix": "-client-b",
+        "region": "us-test",
+        "zone": "aws-use1",
+        "env": {
+          "DEP_URL": "https://my-dep-client-b.factset.io"
+        }
+      }
+    ]
+  }
+}
